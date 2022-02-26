@@ -21,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.appBar)));
         tfUsername = findViewById(R.id.etUsername);
-        tfPassword = findViewById(R.id.inputPassword);
+        tfPassword = findViewById(R.id.etPassword);
         Button login = findViewById(R.id.btLogin);
         login.setOnClickListener(view -> {
             if (tfUsername.getText().toString().equals("") || tfPassword.getText().toString().equals("")){

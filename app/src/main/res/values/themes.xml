@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.LoginAuth" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimary">#86C6F4</item>
         <item name="colorPrimaryDark">@color/black</item>
         <item name="colorAccent">@color/teal_200</item>
         <!-- Customize your theme here. -->
