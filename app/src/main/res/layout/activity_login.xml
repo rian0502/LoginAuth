@@ -11,9 +11,11 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center"
             android:layout_marginTop="50dp"
             android:text="@string/login"
             android:textSize="40sp"
@@ -26,7 +28,8 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
-            app:srcCompat="@drawable/user">
+            app:srcCompat="@drawable/user"
+            android:contentDescription="@string/profile">
         </ImageView>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -37,7 +40,7 @@
             android:layout_marginStart="32dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="32dp"
-            android:hint="Username">
+            android:hint="@string/username">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etUsername"
                 android:inputType="textCapSentences"
@@ -55,7 +58,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
-            android:hint="Password">
+            android:hint="@string/password">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
