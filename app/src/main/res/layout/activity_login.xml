@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".LoginActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,28 +43,29 @@
             android:autofillHints="">
         </EditText>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btLogin"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
             android:text="@string/login"
-            android:background="@color/buttonLogin"
+            app:backgroundTint="@color/purple_200"
             android:textColor="@color/white"
-            android:textSize="25sp"
-            android:fontFamily="sans-serif-black"
-            />
-        <Button
+            android:textSize="15sp"
+            app:cornerRadius="10dp"
+            android:fontFamily="sans-serif-black" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btRegister"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
-            android:text="Daftar"
-            android:background="@color/buttonLogin"
-            android:textColor="@color/white"
-            android:textSize="25sp"
-            android:fontFamily="sans-serif-black"/>
+            android:text="@string/daftar"
+            app:backgroundTint="@color/appBar"
+            app:cornerRadius="10dp"
+            />
+
     </LinearLayout>
 </ScrollView>

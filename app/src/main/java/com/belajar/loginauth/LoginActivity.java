@@ -5,6 +5,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -17,11 +18,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.appBar)));
         tfUsername = findViewById(R.id.etUsername);
         tfPassword = findViewById(R.id.etPassword);
         Button login = findViewById(R.id.btLogin);
-
         login.setOnClickListener(view -> {
             if (tfUsername.getText().toString().equals("") || tfPassword.getText().toString().equals("")){
                 Snackbar.make(view,"Isi Form dengan Lengkap",Snackbar.LENGTH_LONG).show();
