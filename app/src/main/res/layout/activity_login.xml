@@ -50,9 +50,9 @@
             android:layout_gravity="center"
             android:layout_marginTop="40dp"
             android:text="@string/login"
-            app:backgroundTint="@color/purple_200"
             android:textColor="@color/white"
             android:textSize="15sp"
+            app:backgroundTint="#65C18C"
             app:cornerRadius="10dp"
             android:fontFamily="sans-serif-black" />
 
@@ -61,7 +61,7 @@
             android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="20dp"
             android:text="@string/daftar"
             app:backgroundTint="@color/appBar"
             app:cornerRadius="10dp"
