@@ -11,7 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.belajar.loginauth.API.APIclient;
-import com.belajar.loginauth.Models.LoginReq;
 import com.belajar.loginauth.Models.LoginRes;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -43,23 +42,28 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(){
-        LoginReq loginReq = new LoginReq("","");
-        loginReq.setUsername(tfUsername.getText().toString());
-        loginReq.setPassword(tfPassword.getText().toString());
-        Call<LoginRes> loginResCall = APIclient.getService().userLogin(loginReq);
-
+        Call<LoginRes> loginResCall = APIclient.getService().userLogin(tfUsername.getText().toString(), tfPassword.getText().toString());
         loginResCall.enqueue(new Callback<LoginRes>() {
             @Override
-            public void onResponse(Call<LoginRes> call, @NonNull Response<LoginRes> response) {
-                if(response.isSuccessful()){
-                    Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(LoginActivity.this, "Login Gagal", Toast.LENGTH_LONG).show();
-                }
+            public void onResponse(@NonNull Call<LoginRes> call, @NonNull Response<LoginRes> response) {
+               try{
+                   if(response.isSuccessful()){
+                       LoginRes res = response.body();
+                       if(res.getMessage().equals("berhasil")){
+                           Toast.makeText(LoginActivity.this, "Berhasil Login", Toast.LENGTH_LONG).show();
+                       }else{
+                           Toast.makeText(LoginActivity.this, "Username / Password Salah", Toast.LENGTH_LONG).show();
+                       }
+                   }else{
+                       Toast.makeText(LoginActivity.this, "Login Gagal", Toast.LENGTH_LONG).show();
+                   }
+               }catch (Exception e){
+                   System.out.println(e.getMessage());
+               }
             }
 
             @Override
-            public void onFailure(Call<LoginRes> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<LoginRes> call, @NonNull Throwable t) {
                 Toast.makeText(LoginActivity.this,"Eror : "+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                 System.out.println(t.getLocalizedMessage());
             }

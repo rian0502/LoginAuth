@@ -1,12 +1,10 @@
 package com.belajar.loginauth.Models;
 
-import com.google.gson.annotations.SerializedName;
-
 public class LoginReq {
-    private String password;
     private String username;
+    private String password;
 
-    public LoginReq(String password, String username) {
+    public LoginReq(String username, String password) {
         this.password = password;
         this.username = username;
     }
