@@ -1,18 +1,19 @@
 package com.belajar.loginauth;
 
-import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.belajar.loginauth.API.APIclient;
 import com.belajar.loginauth.Models.LoginReq;
 import com.belajar.loginauth.Models.LoginRes;
 import com.google.android.material.snackbar.Snackbar;
-import androidx.appcompat.app.AppCompatActivity;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
 
 import java.util.Objects;
 
@@ -42,14 +43,14 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void login(){
-        LoginReq loginReq = new LoginReq();
+        LoginReq loginReq = new LoginReq("","");
         loginReq.setUsername(tfUsername.getText().toString());
         loginReq.setPassword(tfPassword.getText().toString());
         Call<LoginRes> loginResCall = APIclient.getService().userLogin(loginReq);
 
         loginResCall.enqueue(new Callback<LoginRes>() {
             @Override
-            public void onResponse(Call<LoginRes> call, Response<LoginRes> response) {
+            public void onResponse(Call<LoginRes> call, @NonNull Response<LoginRes> response) {
                 if(response.isSuccessful()){
                     Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_LONG).show();
                 }else{
@@ -58,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<LoginRes> call, Throwable t) {
+            public void onFailure(Call<LoginRes> call, @NonNull Throwable t) {
                 Toast.makeText(LoginActivity.this,"Eror : "+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                 System.out.println(t.getLocalizedMessage());
             }

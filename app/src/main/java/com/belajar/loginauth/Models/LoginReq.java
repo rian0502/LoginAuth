@@ -3,9 +3,13 @@ package com.belajar.loginauth.Models;
 import com.google.gson.annotations.SerializedName;
 
 public class LoginReq {
-    @SerializedName("username")
     private String password;
     private String username;
+
+    public LoginReq(String password, String username) {
+        this.password = password;
+        this.username = username;
+    }
 
     public String getUsername() {
         return username;
