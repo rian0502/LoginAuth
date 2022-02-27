@@ -2,7 +2,6 @@ package com.belajar.loginauth.Activitys;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -43,7 +42,6 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 }
             }
-
             @Override
             public void onFailure(Call<LoginRes> call, @NonNull Throwable t) {
                 Toast.makeText(RegisterActivity.this, "Registrasi Gagal", Toast.LENGTH_LONG).show();
