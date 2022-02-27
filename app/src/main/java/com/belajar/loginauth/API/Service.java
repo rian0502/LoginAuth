@@ -13,4 +13,8 @@ public interface Service {
     @POST("login.php")
     Call<LoginRes> userLogin(@Field("username") String username,
                              @Field("password") String password);
+    @FormUrlEncoded
+    @POST("create.php")
+    Call<LoginRes> createUser(@Field("username") String username,
+                              @Field("password") String password);
 }

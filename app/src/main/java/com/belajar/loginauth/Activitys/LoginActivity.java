@@ -42,12 +42,10 @@ public class LoginActivity extends AppCompatActivity {
                 login();
             }
         });
-        daftar.setOnClickListener(view -> {
-
-        });
+        daftar.setOnClickListener(view -> startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
     }
 
-    public void login(){
+    private void login(){
         Call<LoginRes> loginResCall = APIclient.getService().userLogin(tfUsername.getText().toString(), tfPassword.getText().toString());
         loginResCall.enqueue(new Callback<LoginRes>() {
             @Override

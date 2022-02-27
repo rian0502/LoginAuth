@@ -13,6 +13,7 @@
         android:theme="@style/Theme.LoginAuth">
         <activity
             android:name=".Activitys.RegisterActivity"
+            android:parentActivityName=".Activitys.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".Activitys.HomeActivity"
