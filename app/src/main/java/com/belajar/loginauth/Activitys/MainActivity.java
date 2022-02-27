@@ -1,9 +1,12 @@
-package com.belajar.loginauth;
+package com.belajar.loginauth.Activitys;
 
 import android.content.Intent;
 import android.os.Handler;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.belajar.loginauth.R;
+
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {

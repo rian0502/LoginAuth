@@ -1,7 +1,9 @@
-package com.belajar.loginauth;
+package com.belajar.loginauth.Activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.belajar.loginauth.R;
 
 public class HomeActivity extends AppCompatActivity {
 

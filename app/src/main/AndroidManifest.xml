@@ -10,13 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginAuth">
         <activity
-            android:name=".HomeActivity"
+            android:name=".Activitys.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activitys.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Activitys.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,4 +1,4 @@
-package com.belajar.loginauth;
+package com.belajar.loginauth.Activitys;
 
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.belajar.loginauth.API.APIclient;
 import com.belajar.loginauth.Models.LoginRes;
+import com.belajar.loginauth.R;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.Objects;
