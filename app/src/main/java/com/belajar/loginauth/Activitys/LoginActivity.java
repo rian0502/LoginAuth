@@ -34,12 +34,16 @@ public class LoginActivity extends AppCompatActivity {
         tfUsername = findViewById(R.id.etUsername);
         tfPassword = findViewById(R.id.etPassword);
         Button login = findViewById(R.id.btLogin);
+        Button daftar = findViewById(R.id.btRegister);
         login.setOnClickListener(view -> {
             if (tfUsername.getText().toString().equals("") || tfPassword.getText().toString().equals("")){
                 Snackbar.make(view,"Isi Form dengan Lengkap",Snackbar.LENGTH_LONG).show();
             }else{
                 login();
             }
+        });
+        daftar.setOnClickListener(view -> {
+
         });
     }
 
@@ -51,10 +55,13 @@ public class LoginActivity extends AppCompatActivity {
                try{
                    if(response.isSuccessful()){
                        LoginRes res = response.body();
+                       assert res != null;
                        if(res.getMessage().equals("berhasil")){
                            Toast.makeText(LoginActivity.this, "Berhasil Login", Toast.LENGTH_LONG).show();
                            startActivity(new Intent(LoginActivity.this, HomeActivity.class)
-                                   .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                                   .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK)
+                                   .putExtra("akun-login", tfUsername.getText().toString())
+                           );
                        }else{
                            Toast.makeText(LoginActivity.this, "Username / Password Salah", Toast.LENGTH_LONG).show();
                        }
