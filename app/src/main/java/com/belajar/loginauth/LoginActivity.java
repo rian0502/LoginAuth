@@ -3,13 +3,22 @@ package com.belajar.loginauth;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+
+import com.belajar.loginauth.API.APIclient;
+import com.belajar.loginauth.Models.LoginReq;
+import com.belajar.loginauth.Models.LoginRes;
 import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.Objects;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends AppCompatActivity {
     EditText tfUsername;
@@ -27,15 +36,31 @@ public class LoginActivity extends AppCompatActivity {
             if (tfUsername.getText().toString().equals("") || tfPassword.getText().toString().equals("")){
                 Snackbar.make(view,"Isi Form dengan Lengkap",Snackbar.LENGTH_LONG).show();
             }else{
-                if (tfUsername.getText().toString().equals("admin") || tfPassword.getText().toString().equals("admin")){
-                    startActivity(
-                            new Intent(LoginActivity.this, HomeActivity.class).
-                                    addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                login();
+            }
+        });
+    }
+
+    public void login(){
+        LoginReq loginReq = new LoginReq();
+        loginReq.setUsername(tfUsername.getText().toString());
+        loginReq.setPassword(tfPassword.getText().toString());
+        Call<LoginRes> loginResCall = APIclient.getService().userLogin(loginReq);
+
+        loginResCall.enqueue(new Callback<LoginRes>() {
+            @Override
+            public void onResponse(Call<LoginRes> call, Response<LoginRes> response) {
+                if(response.isSuccessful()){
+                    Toast.makeText(LoginActivity.this, "Login Berhasil", Toast.LENGTH_LONG).show();
                 }else{
-                    Snackbar.make(view,"Username dan Password tidak cocok",Snackbar.LENGTH_LONG).show();
-                    tfPassword.setText("");
-                    tfUsername.setText("");
+                    Toast.makeText(LoginActivity.this, "Login Gagal", Toast.LENGTH_LONG).show();
                 }
+            }
+
+            @Override
+            public void onFailure(Call<LoginRes> call, Throwable t) {
+                Toast.makeText(LoginActivity.this,"Eror : "+t.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                System.out.println(t.getLocalizedMessage());
             }
         });
     }
