@@ -1,5 +1,6 @@
 package com.belajar.loginauth;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.WindowManager;
@@ -51,6 +52,8 @@ public class LoginActivity extends AppCompatActivity {
                        LoginRes res = response.body();
                        if(res.getMessage().equals("berhasil")){
                            Toast.makeText(LoginActivity.this, "Berhasil Login", Toast.LENGTH_LONG).show();
+                           startActivity(new Intent(LoginActivity.this, HomeActivity.class)
+                                   .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
                        }else{
                            Toast.makeText(LoginActivity.this, "Username / Password Salah", Toast.LENGTH_LONG).show();
                        }
