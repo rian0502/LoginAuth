@@ -43,7 +43,7 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
             @Override
-            public void onFailure(Call<LoginRes> call, @NonNull Throwable t) {
+            public void onFailure(@NonNull Call<LoginRes> call, @NonNull Throwable t) {
                 Toast.makeText(RegisterActivity.this, "Registrasi Gagal", Toast.LENGTH_LONG).show();
             }
         });
