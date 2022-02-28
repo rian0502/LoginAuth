@@ -67,7 +67,7 @@
             android:text="@string/daftar"
             android:gravity="center"
             app:cornerRadius="10sp"
-            app:backgroundTint="#F76E11"
+            app:backgroundTint="@color/appBar"
             android:textSize="18sp"
             android:textStyle="bold"
             android:textAllCaps="false" />
