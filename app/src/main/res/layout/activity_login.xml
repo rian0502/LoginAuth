@@ -68,6 +68,7 @@
             android:layout_height="wrap_content"
             android:text="Lupa Password ?"
             android:layout_marginStart="260sp"
+            android:layout_marginEnd="30sp"
             android:clickable="true"
             android:textSize="15sp"
             android:textStyle="bold"
@@ -78,7 +79,7 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btLogin"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="32dp"
             android:layout_marginTop="10dp"
