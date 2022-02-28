@@ -65,6 +65,8 @@ public class LoginActivity extends AppCompatActivity {
                                    .putExtra("akun-login", tfUsername.getText().toString())
                            );
                        }else{
+                           tfUsername.getText().clear();
+                           tfPassword.getText().clear();
                            Toast.makeText(LoginActivity.this, "Username / Password Salah", Toast.LENGTH_LONG).show();
                        }
                    }else{
