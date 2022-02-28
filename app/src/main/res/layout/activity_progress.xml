@@ -6,20 +6,22 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="30sp"
-        android:layout_marginEnd="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="300sp"
         app:srcCompat="@drawable/waiting"
-        />
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp" />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Tunggu Sebentar"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
         android:gravity="center"
         android:textSize="40sp"
         android:textStyle="bold"
-        android:layout_marginTop="200dp">
+        android:textColor="@color/appBar"
+        android:layout_marginTop="10dp">
     </TextView>
 
     <TextView
@@ -27,6 +29,9 @@
         android:layout_height="wrap_content"
         android:text="Sedang di Proses ya!!"
         android:gravity="center"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:textColor="@color/appBar"
         android:textSize="30sp"
         android:textStyle="bold">
     </TextView>
@@ -36,7 +41,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
-
-        android:layout_marginTop="100dp">
+        android:layout_marginTop="50dp">
     </ProgressBar>
+
+
 </LinearLayout>
