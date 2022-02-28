@@ -41,8 +41,13 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tfRegisUsername"
                 android:layout_width="match_parent"
+                android:maxLength="14"
+                android:drawableStart="@drawable/user"
+                android:drawablePadding="15sp"
+                android:drawableEnd="@drawable/vertiv"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,9 +59,13 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tfRegisPass"
                 android:layout_width="match_parent"
+                android:drawableStart="@drawable/lock"
+                android:drawablePadding="15sp"
+                android:maxLength="15"
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
+
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btdaftar"
             android:layout_width="match_parent"

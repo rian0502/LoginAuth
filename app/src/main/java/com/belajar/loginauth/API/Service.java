@@ -17,4 +17,9 @@ public interface Service {
     @POST("create.php")
     Call<LoginRes> createUser(@Field("username") String username,
                               @Field("password") String password);
+    @FormUrlEncoded
+    @POST("find_user.php")
+    Call<LoginRes> findUser(@Field("username") String username);
+
+
 }
