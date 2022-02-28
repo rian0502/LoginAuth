@@ -10,6 +10,9 @@ import android.widget.Toast;
 import com.belajar.loginauth.API.APIclient;
 import com.belajar.loginauth.Models.LoginRes;
 import com.belajar.loginauth.R;
+
+import java.util.Objects;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,6 +24,7 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        Objects.requireNonNull(getSupportActionBar()).hide();
         Button daftar = findViewById(R.id.btdaftar);
         username = findViewById(R.id.tfRegisUsername);
         password = findViewById(R.id.tfRegisPass);
