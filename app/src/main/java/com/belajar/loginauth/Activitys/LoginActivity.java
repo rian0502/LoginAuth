@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
     EditText tfUsername;
     EditText tfPassword;
+    TextView tvPass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.appBar)));
         tfUsername = findViewById(R.id.etUsername);
         tfPassword = findViewById(R.id.etPassword);
+        tvPass = findViewById(R.id.tvLupaPass);
         Button login = findViewById(R.id.btLogin);
         Button daftar = findViewById(R.id.btRegister);
         login.setOnClickListener(view -> {
@@ -43,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         daftar.setOnClickListener(view -> startActivity(new Intent(LoginActivity.this, RegisterActivity.class)));
+        tvPass.setOnClickListener(view -> startActivity(new Intent(LoginActivity.this, LupaPassActivity.class)));
     }
 
     private void login(){

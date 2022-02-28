@@ -12,9 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginAuth">
         <activity
-            android:name=".Activitys.RegisterActivity"
+            android:name=".Activitys.LupaPassActivity"
             android:parentActivityName=".Activitys.LoginActivity"
             android:exported="false" />
+        <activity
+            android:name=".Activitys.RegisterActivity"
+            android:exported="false"
+            android:parentActivityName=".Activitys.LoginActivity" />
         <activity
             android:name=".Activitys.HomeActivity"
             android:exported="false" />
