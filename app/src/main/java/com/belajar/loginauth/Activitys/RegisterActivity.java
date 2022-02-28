@@ -29,9 +29,13 @@ public class RegisterActivity extends AppCompatActivity {
         username = findViewById(R.id.tfRegisUsername);
         password = findViewById(R.id.tfRegisPass);
         daftar.setOnClickListener(view -> {
-            registrasi();
-            daftar.setEnabled(false);
-            setContentView(R.layout.activity_progress);
+          if(username.getText().toString().equals("") || password.getText().toString().equals("")){
+              Toast.makeText(RegisterActivity.this, "Isi Form dengan Lengkap", Toast.LENGTH_SHORT).show();
+          }else{
+              registrasi();
+              daftar.setEnabled(false);
+              setContentView(R.layout.activity_progress);
+          }
         });
     }
 
