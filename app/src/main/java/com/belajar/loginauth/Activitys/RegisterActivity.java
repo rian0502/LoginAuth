@@ -24,7 +24,11 @@ public class RegisterActivity extends AppCompatActivity {
         Button daftar = findViewById(R.id.btdaftar);
         username = findViewById(R.id.tfRegisUsername);
         password = findViewById(R.id.tfRegisPass);
-        daftar.setOnClickListener(view -> registrasi());
+        daftar.setOnClickListener(view -> {
+            registrasi();
+            daftar.setEnabled(false);
+            setContentView(R.layout.activity_progress);
+        });
     }
 
     private void registrasi(){

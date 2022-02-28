@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tunggu Sebentar"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:layout_marginTop="200dp">
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sedang di Proses ya!!"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textStyle="bold">
+    </TextView>
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+
+        android:layout_marginTop="100dp">
+    </ProgressBar>
+</LinearLayout>
