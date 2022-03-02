@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +22,7 @@ import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText username, password;
+    private EditText username, password, confPassword;
     private Button daftar;
 
     @SuppressLint("ClickableViewAccessibility")
@@ -32,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
         daftar = findViewById(R.id.btdaftar);
         username = findViewById(R.id.tfRegisUsername);
         password = findViewById(R.id.tfRegisPass);
+        confPassword = findViewById(R.id.tfRegisPassConf);
         daftar.setVisibility(View.GONE);
         daftar.setOnClickListener(view -> {
           if(username.getText().toString().equals("") || password.getText().toString().equals("")){
@@ -42,7 +45,6 @@ public class RegisterActivity extends AppCompatActivity {
               setContentView(R.layout.activity_progress);
           }
         });
-
         username.setOnTouchListener((view, motionEvent) -> {
             final int RIGTH = 2 ;
             if(motionEvent.getAction() == MotionEvent.ACTION_UP){
@@ -56,6 +58,25 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
             return false;
+        });
+        confPassword.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String pw = password.getText().toString().trim();
+                if(editable.length() > 0 && password.length() > 0){
+                    if (!confPassword.getText().toString().trim().equals(pw)){
+                        confPassword.setError("Password Tidak Cocok");
+                    }
+                }
+            }
         });
     }
 
@@ -94,7 +115,8 @@ public class RegisterActivity extends AppCompatActivity {
                         daftar.setVisibility(View.VISIBLE);
                         username.setEnabled(false);
                     }else{
-                        Toast.makeText(RegisterActivity.this, "Username Telah Ada !",Toast.LENGTH_LONG).show();
+//                        Toast.makeText(RegisterActivity.this, "Username Telah Ada !",Toast.LENGTH_LONG).show();
+                        username.setError("Username Telah di gunakan !!");
                     }
                 }
             }
