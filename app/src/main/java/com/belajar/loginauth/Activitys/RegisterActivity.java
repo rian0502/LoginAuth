@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -18,9 +19,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
-    EditText username;
-    EditText password;
-    Button daftar;
+
+    private EditText username, password;
+    private Button daftar;
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
         daftar = findViewById(R.id.btdaftar);
         username = findViewById(R.id.tfRegisUsername);
         password = findViewById(R.id.tfRegisPass);
-        daftar.setEnabled(false);
+        daftar.setVisibility(View.GONE);
         daftar.setOnClickListener(view -> {
           if(username.getText().toString().equals("") || password.getText().toString().equals("")){
               Toast.makeText(RegisterActivity.this, "Isi Form dengan Lengkap", Toast.LENGTH_SHORT).show();
@@ -69,6 +71,7 @@ public class RegisterActivity extends AppCompatActivity {
                         Toast.makeText(RegisterActivity.this, "Akun Berhasil di Buat",Toast.LENGTH_LONG).show();
                         startActivity(new Intent(RegisterActivity.this, LoginActivity.class)
                                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK));
+                        finish();
                     }
                 }
             }
@@ -88,7 +91,7 @@ public class RegisterActivity extends AppCompatActivity {
                     assert  lr != null;
                     if(lr.getMessage().equals("no")){
                         Toast.makeText(RegisterActivity.this, "Username dapat digunakan", Toast.LENGTH_LONG).show();
-                        daftar.setEnabled(true);
+                        daftar.setVisibility(View.VISIBLE);
                         username.setEnabled(false);
                     }else{
                         Toast.makeText(RegisterActivity.this, "Username Telah Ada !",Toast.LENGTH_LONG).show();

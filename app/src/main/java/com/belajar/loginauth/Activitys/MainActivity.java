@@ -8,7 +8,7 @@ import com.belajar.loginauth.R;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-    Handler h = new Handler();
+    private Handler h = new Handler();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
             Intent login = new Intent(MainActivity.this, LoginActivity.class);
             login.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(login);
+            finish();
         },3000);
     }
 }
