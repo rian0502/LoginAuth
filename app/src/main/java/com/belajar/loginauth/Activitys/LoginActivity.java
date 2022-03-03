@@ -24,7 +24,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText tfUsername, tfPassword;
-    private TextView tvPass;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         tfUsername = findViewById(R.id.etUsername);
         tfPassword = findViewById(R.id.etPassword);
-        tvPass = findViewById(R.id.tvLupaPass);
+        TextView tvPass = findViewById(R.id.tvLupaPass);
         Button login = findViewById(R.id.btLogin);
         Button daftar = findViewById(R.id.btRegister);
         login.setOnClickListener(this);
@@ -54,10 +54,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             }
         }else if(view.getId() == R.id.btRegister){
             startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
-            finish();
+
         }else if(view.getId() == R.id.tvLupaPass){
             startActivity(new Intent(LoginActivity.this, LupaPassActivity.class));
-            finish();
         }
     }
     private boolean isNetworkOnline(){

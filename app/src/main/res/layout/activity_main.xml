@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/salsa"
         android:text="@string/selamat_datang"
-        android:textColor="#65C18C"
+        android:textColor="#158EDE"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imageView2"
@@ -23,8 +23,8 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="242dp"
-        android:layout_height="258dp"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
